@@ -112,22 +112,28 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         userList.addAll(clsUserResponse.getData().getUsers());
 
-        if (clsUserResponse.getData().getHasMore())
+        if (clsUserResponse.getData().getHasMore()) {
             pageOffset++;
 
-        if (userListAdapter == null) {
-            userListAdapter = new UserListAdapter(MainActivity.this, userList);
-            recyclerViewUser.setLayoutManager(getLayoutManager());
-            recyclerViewUser.setAdapter(userListAdapter);
+            if (userListAdapter == null) {
+                userListAdapter = new UserListAdapter(MainActivity.this, userList);
+                recyclerViewUser.setLayoutManager(getLayoutManager());
+                recyclerViewUser.setAdapter(userListAdapter);
 
-            recyclerViewUser.addItemDecoration(new DividerItemDecoration(recyclerViewUser.getContext(),DividerItemDecoration.VERTICAL));
+                recyclerViewUser.addItemDecoration(new DividerItemDecoration(recyclerViewUser.getContext(),DividerItemDecoration.VERTICAL));
 
-            recyclerViewUser.addOnScrollListener(endLessRecyclerViewScrollListener);
-        } else {
-            userListAdapter.setUserList(userList);
-            userListAdapter.notifyDataSetChanged();
+                recyclerViewUser.addOnScrollListener(endLessRecyclerViewScrollListener);
+            } else {
+                userListAdapter.setUserList(userList);
+                userListAdapter.notifyDataSetChanged();
+            }
         }
-
+        else
+        {
+            pageOffset = 0;
+            showBottomProgress(progressBarBottom, View.GONE);
+            Toast.makeText(MainActivity.this, getString(R.string.no_data),Toast.LENGTH_LONG).show();
+        }
     }
 
     private void showBottomProgress(ProgressBar progressBarBottom, int visible) {
