@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EngineeringAiPracticalTest</string>
+    <string name="try_later">There is something wrong with the API, please try again later</string>
+    <string name="check_connection">Please check your internect connection.</string>
+</resources>
