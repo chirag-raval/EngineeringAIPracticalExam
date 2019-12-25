@@ -1,7 +1,6 @@
 package com.example.engineeringaipracticaltest;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -18,7 +17,6 @@ import com.example.engineeringaipracticaltest.network.OnApiCompleted;
 import com.example.engineeringaipracticaltest.network.RetrofitApiCallMethods;
 import com.example.engineeringaipracticaltest.utility.EndLessRecyclerViewScrollListener;
 import com.example.engineeringaipracticaltest.utility.Utility;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;

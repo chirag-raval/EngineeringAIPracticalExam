@@ -2,14 +2,12 @@ package com.example.engineeringaipracticaltest.network;
 
 import android.app.Activity;
 
-
 import com.example.engineeringaipracticaltest.R;
 import com.example.engineeringaipracticaltest.models.ClsUserResponse;
 import com.example.engineeringaipracticaltest.utility.Utility;
 
 import org.json.JSONObject;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,7 +23,6 @@ public class RetrofitApiCallMethods
     private void retrofitSuccess(Response response,
                                  final OnApiCompleted onApiCompleted)
     {
-        Utility.log("Response Code ", ":" + response.code());
         if (response.code() == 200)
         {
             try
